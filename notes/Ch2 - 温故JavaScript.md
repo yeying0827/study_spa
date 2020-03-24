@@ -173,7 +173,7 @@ function outer ( arg) { // 1-2)
 
 > 在执行环境中调用函数，会创建一个新的嵌套在已存在的执行环境内的执行环境。 
 
-![image](<https://github.com/yeying0827/study_spa/blob/master/images/2-1.png>) 
+![image](<../images/2-1.png>) 
 
 1）在<script>标签内的所有东西都在全局执行环境中 
 
@@ -199,7 +199,7 @@ s_f有权限访问f_f的执行环境中的变量（译者注：表述有误，s_
 
 当在查找变量的定义时，JavaScript引擎首先在局部执行环境对象上查找。如果没有定义，则跳出作用域链，到创建它的执行环境中去，并且在该执行环境对象中查找变量的定义，以此类推，直到找到定义或者到达全局作用域为止。（使用找到的第一次匹配并停止查找。） 
 
-![image](<https://github.com/yeying0827/study_spa/blob/master/images/2-1.png>) 
+![image](<../images/2-2.png>) 
 
 在运行期，JavaScript会检索作用域层级来解析变量名。-> 在层级更深的嵌套作用域中的变量，会使用它们的当前作用域替换更加全局的作用域，从而隐藏更加全局的作用域中的变量。-> 在实际代码中，应当尽力使得变量名是唯一的。 
 
@@ -379,7 +379,7 @@ JavaScript引擎是如何实现查找对象的属性值的。
 
 > 原型：保存在对象的__proto__属性中。generic object prototype has no prototype 
 
-![image](<https://github.com/yeying0827/study_spa/blob/master/images/2-2.png>) 
+![image](<../images/2-3.png>) 
 
 可以使用__proto__属性，手动地在原型链上”往上爬“。 
 
