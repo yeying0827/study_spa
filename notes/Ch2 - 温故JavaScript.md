@@ -282,21 +282,20 @@ var prisoner = {
 **多个对象共享相似的特性：** 
 
 ```java 
-// 基于对象 
-public class Prisoner { 
-    public int sentence = 4; 
-    public int probation = 2; 
-    public string name; 
-    public int id; 
+// 基于对象
+public class Prisoner {
+    public int sentence = 4;
+    public int probation = 2;
+    public string name;
+    public int id;
     
-    public Prisoner(string name, int id) { 
-        this.name = name; 
-        this.id = id; 
-	} 
-} 
-
-Prisoner firstPrisoner = new Prisoner( 'Joe', 12 ); 
-Prisoner secondPrisoner = new Prisoner( 'Sam', 34 ); 
+    public Prisoner(string name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+}
+Prisoner firstPrisoner = new Prisoner( 'Joe', 12 );
+Prisoner secondPrisoner = new Prisoner( 'Sam', 34 );
 ```
 
 ```javascript 
@@ -490,15 +489,15 @@ var prison = function () {};
 在稍大一点的模块中，减少全局变量很重要。 
 
 ```javascript 
-var prison = (function() { 
-    var prisoner_name = 'Mike', 
-    	jail_term = '20 year term'; 
-    return { 
-        prisoner: prisoner_name + '-' + jail_term, 
-        sentence: jail_term 
-	}; 
-})(); 
-// jail_term不是prison对象或者原型上的属性，它是执行环境中创建的对象变量 
+var prison = (function() {
+    var prisoner_name = 'Mike',
+        jail_term = '20 year term';
+    return {
+        prisoner: prisoner_name + '-' + jail_term,
+        sentence: jail_term
+    };
+})();
+// jail_term不是prison对象或者原型上的属性，它是执行环境中创建的对象变量
 ```
 
 ```javascript 
