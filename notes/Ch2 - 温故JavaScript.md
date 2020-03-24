@@ -31,13 +31,13 @@
 本书更喜欢在函数的顶部声明变量的写法，因为此时变量的作用域是相当清晰的。 
 
 ``` javascript
-// 提倡写法 
-function prison() { 
-	var prisoner = 'I am local!', 
-		warden = 'I am local too!', 
-		guards = 'I am local three!' 
-	; 
-} 
+// 提倡写法
+function prison() {
+    var prisoner = 'I am local!',
+        warden = 'I am local too!',
+        guards = 'I am local three!'
+    ;
+}
 ```
 
 使用逗号将局部变量的定义合并在一起，使之一目了然，并且可能更重要的是，不大可能会发生无意的拼写错误以及创建了全局变量而不是局部变量。同时提升可读性和可理解性。 
@@ -61,16 +61,16 @@ JavaScript引擎在进入作用域时，会对代码分两轮处理：
 第二轮，执行代码。 
 
 ```javascript 
-function myFunction( arg1, arg2 ) { // 1) 
-    var local_var = 'foo', 
-        a_function = function () { 
-        	console.log('a function'); 
-        }; // 2) 
-    function inner () { // 3) 
-        console.log('inner'); 
-    } 
-} 
-myFunction( 1, 2); 
+function myFunction( arg1, arg2 ) { // 1)
+    var local_var = 'foo',
+        a_function = function () {
+            console.log('a function');
+        }; // 2)
+    function inner () { // 3)
+        console.log('inner');
+    }
+}
+myFunction( 1, 2);
 ```
 
 在第一轮，JavaScript引擎分析代码，并做了以下3件事情： 
@@ -126,14 +126,14 @@ JavaScript引擎把变量作为属性保存在一个对象上，这个对象称�
 **执行环境对象的生命周期 以及创建它的JavaScript代码** 
 
 ```javascript 
-outer(1); // 1-1) 2-1） 
+outer(1); // 1-1) 2-1）
 
-function outer ( arg) { // 1-2) 
-    var local_var = 'foo'; // 1-3) 
-    function inner () { // 1-4) 2-2） 
-    	console.log('inner'); 
-	} 
-	inner(); // 1-5) 2-3） 
+function outer ( arg) { // 1-2)
+    var local_var = 'foo'; // 1-3)
+    function inner () { // 1-4) 2-2）
+        console.log('inner');
+    }
+    inner(); // 1-5) 2-3）
 } 
 ```
 
@@ -204,25 +204,25 @@ s_f有权限访问f_f的执行环境中的变量（译者注：表述有误，s_
 在运行期，JavaScript会检索作用域层级来解析变量名。-> 在层级更深的嵌套作用域中的变量，会使用它们的当前作用域替换更加全局的作用域，从而隐藏更加全局的作用域中的变量。-> 在实际代码中，应当尽力使得变量名是唯一的。 
 
 ```javascript 
-var regular_joe = 'I am here to save the day'; 
+var regular_joe = 'I am here to save the day';
 
-// log 'I am here to save the day' 
+// log 'I am here to save the day'
 console.log(regular_joe); 
-
-function supermax() { 
-	var regular_joe = 'regular_joe is assigned'; 
+function supermax() {
+    var regular_joe = 'regular_joe is assigned';
     
-	// log 'regular_joe is assigned' 
-	console.log(regular_joe); 
-	function prison() { 
-		var regular_joe; 
-
-		// log undefined 
-		console.log(regular_joe); 
-	} 
-	prison(); 
-} 
-supermax(); 
+    // log 'regular_joe is assigned'
+    console.log(regular_joe);
+    function prison() {
+        var regular_joe;
+        
+        // log undefined
+        console.log(regular_joe);
+    }
+    
+    prison();
+}
+supermax();
 ```
 
 > 在查找一个变量的值时，结果可能来自于作用域链上的任何地方。 
@@ -234,9 +234,9 @@ supermax();
 浏览器的顶层对象是window对象；在nodejs中顶层对象是global。 
 
 ```javascript 
-var regular_joe = 'Global variable'; 
-console.log(regular_joe); 
-console.log(window.regular_joe); 
+var regular_joe = 'Global variable';
+console.log(regular_joe);
+console.log(window.regular_joe);
 console.log(regulart_joe === window.regular_joe); // true
 ```
 
@@ -257,14 +257,14 @@ JavaScript对象是基于原型(prototype-based)的，而当今其他广泛使�
 **简单对象创建：** 
 
 ```java 
-// 基于对象 
-public class Prisoner { 
-    public int sentence = 4; 
-    public int probation = 2; 
-    public string name = 'Joe'; 
-    public int id = 1234; 
-} 
-Prisoner prisoner = new Prisoner(); 
+// 基于对象
+public class Prisoner {
+    public int sentence = 4;
+    public int probation = 2;
+    public string name = 'Joe';
+    public int id = 1234;
+}
+Prisoner prisoner = new Prisoner();
 ```
 
 ```javascript 
