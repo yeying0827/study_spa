@@ -137,7 +137,7 @@ set -u;
 # exit on error check
 # set -e;
 
-BALL=0;
+BAIL=0;
 TMP_FILE="/tmp/git-pre-commit.tmp";
 echo;
 echo "JSLint test of updated or new *.js files ...";
