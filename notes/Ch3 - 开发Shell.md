@@ -172,3 +172,5 @@ exit 0;
 
 确保可执行：chmod 755 pre-commit
 
+提交没有进入while循环？？
+
