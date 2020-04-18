@@ -3,6 +3,8 @@
  * Root namespace module
  */
 
+// 设置JSLint开关
+// 告诉JSLint，spa和$是全局变量
  /* jslint          browser: true,  continue: true,
     devel: true,    indent: 2,      maxerr: 50,
     newcap: true,   nomen: true,    plusplus: true,
@@ -11,6 +13,7 @@
  */
  /* global $, spa */
 
+// 使用模块模式来创建"spa"名字空间
 var spa = (function () {
         'use strict';
         var initModule = function ($container) {
